@@ -9,7 +9,6 @@ package com.bdhs.bossapp.base;
  * 修改时间：2017-12-07 16:27
  * 修改备注：
  */
-import java.lang.ref.WeakReference;
 
 /**
  * 项目名称：Serialport

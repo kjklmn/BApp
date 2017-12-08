@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import butterknife.ButterKnife;
+
 
 public abstract class BaseActivity extends AppCompatActivity implements
         View.OnClickListener {
@@ -53,6 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
 //            } else {
 //                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 //            }
+            ButterKnife.bind(this);
             initView();
             doBusiness();
         } catch (Exception e) {
