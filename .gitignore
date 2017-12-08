@@ -53,3 +53,9 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
+app/.externalNativeBuild/
+app/build/
+登录.png
+首页.png
+首页_cookie.png
+主页.png
