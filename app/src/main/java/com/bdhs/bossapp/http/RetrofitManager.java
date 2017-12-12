@@ -5,6 +5,8 @@ import com.bdhs.bossapp.application.MainApplication;
 import com.bdhs.bossapp.config.DebugConfig;
 import com.bdhs.bossapp.presenter.login.LoginRequest;
 import com.bdhs.bossapp.presenter.login.LoginResponse;
+import com.bdhs.bossapp.presenter.shopinfo.ShopInfoRequest;
+import com.bdhs.bossapp.presenter.shopinfo.ShopinfoResponse;
 import com.bdhs.bossapp.utils.StringUtils;
 import com.google.gson.Gson;
 
@@ -80,6 +82,8 @@ public class RetrofitManager {
 //                            .addNetworkInterceptor(mRewriteCacheControlInterceptor)
 //                                .addNetworkInterceptor(new StethoInterceptor())//调试使用
 //                                .addInterceptor(interceptor)
+                                .addInterceptor(new ReceivedCookiesInterceptor(MainApplication.getInstance()))
+                                .addInterceptor(new AddCookiesInterceptor(MainApplication.getInstance()))
                                 .retryOnConnectionFailure(true)
                                 .connectTimeout(DebugConfig.connect_timeout, TimeUnit.SECONDS)
                                 .readTimeout(DebugConfig.read_timeout,TimeUnit.SECONDS)
@@ -91,6 +95,8 @@ public class RetrofitManager {
 //                            .addInterceptor(mRewriteCacheControlInterceptor)
 //                            .addNetworkInterceptor(mRewriteCacheControlInterceptor)
 //                                .addNetworkInterceptor(new StethoInterceptor())//调试使用
+                                .addInterceptor(new ReceivedCookiesInterceptor(MainApplication.getInstance()))
+                                .addInterceptor(new AddCookiesInterceptor(MainApplication.getInstance()))
                                 .addInterceptor(interceptor)
                                 .retryOnConnectionFailure(true)
                                 .connectTimeout(DebugConfig.connect_timeout, TimeUnit.SECONDS)
@@ -131,5 +137,8 @@ public class RetrofitManager {
         return mNetworkService.handleLogin(loginRequest.seller_name,loginRequest.seller_pwd,loginRequest.b_box,loginRequest.v);
     }
 
+    public Observable<ShopinfoResponse> getShopInfo(ShopInfoRequest shopInfoRequest) {
+        return mNetworkService.getShopInfo(shopInfoRequest.shop_id,shopInfoRequest.sign,shopInfoRequest.b_box,shopInfoRequest.v);
+    }
 
  }

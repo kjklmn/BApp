@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -23,7 +24,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -33,7 +33,9 @@ import com.bdhs.bossapp.base.BaseMvpView;
 import com.bdhs.bossapp.base.BaseResponse;
 import com.bdhs.bossapp.presenter.login.LoginPresenter;
 import com.bdhs.bossapp.presenter.login.LoginRequest;
+import com.bdhs.bossapp.presenter.login.LoginResponse;
 import com.bdhs.bossapp.utils.LogUtils;
+import com.qihoo360.replugin.RePlugin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,11 +123,13 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
             @Override
             public void showLoading() {
                 LogUtils.w(TAG, "showLoading");
+                showProgress(true);
             }
 
             @Override
             public void hideLoading() {
                 LogUtils.w(TAG, "hideLoading");
+                showProgress(false);
             }
 
             @Override
@@ -136,6 +140,17 @@ public class LoginActivity extends BaseActivity implements LoaderCallbacks<Curso
             @Override
             public void toMainActivity(BaseResponse baseResponse) {
                 LogUtils.w(TAG, "baseResponse:" + baseResponse.toString());
+                if(baseResponse instanceof LoginResponse) {
+                    LoginResponse response = (LoginResponse)baseResponse;
+                    if(response.code == 0) {
+//                        RePlugin.startActivity(LoginActivity.this, RePlugin.createIntent("bdhsbossapp",
+//                                "com.bdhs.bosspone.ui.activity.MainActivity"));
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("data",response);
+                        startActivity(MainActivity.class,bundle);
+                        LoginActivity.this.finish();
+                    }
+                }
             }
         });
     }

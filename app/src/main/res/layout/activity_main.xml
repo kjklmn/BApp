@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bdhs.bosspone.ui.activity.MainActivity"
+    android:orientation="vertical">
+
+   <!--<include layout="@layout/top_layout" />-->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/View_Pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <include layout="@layout/buttom_layout" />
+
+</LinearLayout>

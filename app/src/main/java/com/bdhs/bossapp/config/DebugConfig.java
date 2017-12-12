@@ -14,8 +14,8 @@ public class DebugConfig {
     public static final boolean SPEAKER = true;
 
     //开发环境
-    public static final String Base_URL = "http://store.dev.box.bdhongshan.com/index.php/boss/";
-    public static final String Base_URL_EC = "http://store.dev.box.bdhongshan.com/index.php/boss/";
+    public static final String Base_URL = "http://store.demo.box.bdhongshan.com/index.php/boss/";
+    public static final String Base_URL_EC = "http://store.demo.box.bdhongshan.com/index.php/boss/";
 
 
 

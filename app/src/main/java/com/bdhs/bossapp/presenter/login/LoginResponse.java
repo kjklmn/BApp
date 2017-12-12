@@ -2,6 +2,8 @@ package com.bdhs.bossapp.presenter.login;
 
 import com.bdhs.bossapp.base.BaseResponse;
 
+import java.io.Serializable;
+
 /**
  * 项目名称：BossApp
  * 类描述：
@@ -11,11 +13,11 @@ import com.bdhs.bossapp.base.BaseResponse;
  * 修改时间：2017-12-07 16:31
  * 修改备注：
  */
-public class LoginResponse extends BaseResponse {
+public class LoginResponse extends BaseResponse implements Serializable {
 
     public BeanData data;
 
-    public class BeanData {
+    public class BeanData implements Serializable{
         public int tag;
         public String store_id;
         public String shop_id;

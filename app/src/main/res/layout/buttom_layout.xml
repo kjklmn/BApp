@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dip"
+    android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#666666"
+        android:layout_marginBottom="4px"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="#00000000">
+
+        <LinearLayout
+            android:id="@+id/home_layout_view"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/home_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/comui_tab_home_selected" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="首页"
+                    android:layout_marginTop="5dip"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/message_layout_view"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/message_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/comui_tab_message" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消息"
+                android:layout_marginTop="5dip"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pond_layout_view"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/pond_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/comui_tab_pond" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="博客"
+                android:layout_marginTop="5dip"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/person_layout_view"
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/person_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/comui_tab_person" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的"
+                android:layout_marginTop="5dip"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

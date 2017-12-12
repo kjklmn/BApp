@@ -3,6 +3,7 @@ package com.bdhs.bossapp.http;
 
 import com.bdhs.bossapp.presenter.login.LoginRequest;
 import com.bdhs.bossapp.presenter.login.LoginResponse;
+import com.bdhs.bossapp.presenter.shopinfo.ShopinfoResponse;
 
 import retrofit2.http.Body;
 import retrofit2.http.Field;
@@ -24,4 +25,11 @@ public interface NetworkService {
                                           @Field("seller_pwd") String seller_pwd,
                                           @Field("b_box") String b_box,
                                           @Field("v") String v);
+
+    @FormUrlEncoded
+    @POST("index/shop_info")
+    Observable<ShopinfoResponse> getShopInfo(@Field("shop_id") String seller_name,
+                                             @Field("sign") String seller_pwd,
+                                             @Field("b_box") String b_box,
+                                             @Field("v") String v);
 }

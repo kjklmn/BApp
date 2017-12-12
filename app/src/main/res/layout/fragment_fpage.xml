@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/main_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.bdhs.bossapp.ui.view.BottomScrollView
+            android:id="@+id/main_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tv_height"
+                    android:gravity="center"
+                    android:background="@color/bg_tv"
+                    android:textColor="@color/text_color_white"
+                    android:text="adfsd"/>
+                <GridView
+                    android:id="@+id/gridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:horizontalSpacing="30px"
+                    android:numColumns="3"
+                    android:paddingLeft="30px"
+                    android:paddingRight="30px"
+                    android:paddingBottom="2px"
+                    android:verticalSpacing="24px">
+                </GridView>
+            </LinearLayout>
+        </com.bdhs.bossapp.ui.view.BottomScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>
