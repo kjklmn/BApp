@@ -180,6 +180,12 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        shopInfoPresenter.detachView();
+    }
+
+    @Override
     public void widgetClick(View v) {
 
     }

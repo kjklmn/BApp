@@ -47,7 +47,7 @@ public class RetrofitManager {
     private static OkHttpClient mOkHttpClient;
     private final NetworkService mNetworkService;
 
-    public static RetrofitManager builder(){
+    public static RetrofitManager builder() {
         return new RetrofitManager();
     }
 
@@ -75,33 +75,24 @@ public class RetrofitManager {
                     // 指定缓存路径,缓存大小100Mb
                     Cache cache = new Cache(new File(MainApplication.getInstance().getCacheDir(), "HttpCache"),
                             1024 * 1024 * 100);
-                    if(!DebugConfig.DEBUG) {
+                    if (!DebugConfig.DEBUG) {
                         mOkHttpClient = new OkHttpClient.Builder()
-//                            .cache(cache)
-//                            .addInterceptor(mRewriteCacheControlInterceptor)
-//                            .addNetworkInterceptor(mRewriteCacheControlInterceptor)
-//                                .addNetworkInterceptor(new StethoInterceptor())//调试使用
-//                                .addInterceptor(interceptor)
                                 .addInterceptor(new ReceivedCookiesInterceptor(MainApplication.getInstance()))
                                 .addInterceptor(new AddCookiesInterceptor(MainApplication.getInstance()))
                                 .retryOnConnectionFailure(true)
                                 .connectTimeout(DebugConfig.connect_timeout, TimeUnit.SECONDS)
-                                .readTimeout(DebugConfig.read_timeout,TimeUnit.SECONDS)
-                                .writeTimeout(DebugConfig.write_timeout,TimeUnit.SECONDS)
+                                .readTimeout(DebugConfig.read_timeout, TimeUnit.SECONDS)
+                                .writeTimeout(DebugConfig.write_timeout, TimeUnit.SECONDS)
                                 .build();
                     } else {
                         mOkHttpClient = new OkHttpClient.Builder()
-//                            .cache(cache)
-//                            .addInterceptor(mRewriteCacheControlInterceptor)
-//                            .addNetworkInterceptor(mRewriteCacheControlInterceptor)
-//                                .addNetworkInterceptor(new StethoInterceptor())//调试使用
                                 .addInterceptor(new ReceivedCookiesInterceptor(MainApplication.getInstance()))
                                 .addInterceptor(new AddCookiesInterceptor(MainApplication.getInstance()))
                                 .addInterceptor(interceptor)
                                 .retryOnConnectionFailure(true)
                                 .connectTimeout(DebugConfig.connect_timeout, TimeUnit.SECONDS)
-                                .readTimeout(DebugConfig.read_timeout,TimeUnit.SECONDS)
-                                .writeTimeout(DebugConfig.write_timeout,TimeUnit.SECONDS)
+                                .readTimeout(DebugConfig.read_timeout, TimeUnit.SECONDS)
+                                .writeTimeout(DebugConfig.write_timeout, TimeUnit.SECONDS)
                                 .build();
                     }
 
@@ -134,11 +125,11 @@ public class RetrofitManager {
 
 
     public Observable<LoginResponse> handleLogin(LoginRequest loginRequest) {
-        return mNetworkService.handleLogin(loginRequest.seller_name,loginRequest.seller_pwd,loginRequest.b_box,loginRequest.v);
+        return mNetworkService.handleLogin(loginRequest.seller_name, loginRequest.seller_pwd, loginRequest.b_box, loginRequest.v);
     }
 
     public Observable<ShopinfoResponse> getShopInfo(ShopInfoRequest shopInfoRequest) {
-        return mNetworkService.getShopInfo(shopInfoRequest.shop_id,shopInfoRequest.sign,shopInfoRequest.b_box,shopInfoRequest.v);
+        return mNetworkService.getShopInfo(shopInfoRequest.shop_id, shopInfoRequest.sign, shopInfoRequest.b_box, shopInfoRequest.v);
     }
 
- }
+}

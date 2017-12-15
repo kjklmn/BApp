@@ -1,6 +1,9 @@
 package com.bdhs.bossapp.application;
 
 
+import com.bdhs.bossapp.di.component.DaggerNetComponent;
+import com.bdhs.bossapp.di.component.NetComponent;
+import com.bdhs.bossapp.di.module.NetModule;
 import com.qihoo360.replugin.RePluginApplication;
 
 /**
@@ -17,11 +20,23 @@ public class MainApplication extends RePluginApplication {
     public boolean isDebug;
     public String APP_NAME;
     private static MainApplication instance;
+    private NetComponent netComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
+        initNet();
+    }
+
+    private void initNet() {
+        netComponent = DaggerNetComponent.builder()
+            .netModule(new NetModule())
+            .build();
+    }
+
+    public NetComponent getNetComponent() {
+        return netComponent;
     }
 
     public static MainApplication getInstance() {
