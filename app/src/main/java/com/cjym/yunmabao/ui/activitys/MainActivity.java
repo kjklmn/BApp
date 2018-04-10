@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.cjym.yunmabao.R;
 import com.cjym.yunmabao.base.BaseMvpView;
@@ -51,6 +52,7 @@ public class MainActivity extends BaseActivity {
     private String sign = null;
     private String img_path = null;
     private String shop_name = null;
+    private TextView tvTitle;
 
     @Override
     public void initParms(Bundle parms) {
@@ -76,12 +78,19 @@ public class MainActivity extends BaseActivity {
     private void setCustomActionBar() {
         ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
         View mActionBarView = LayoutInflater.from(this).inflate(R.layout.actionbar_layout, null);
+        LogUtils.w(TAG,"tvTitle init");
+        tvTitle = (TextView) mActionBarView.findViewById(R.id.title);
+        if(tvTitle == null) {
+            LogUtils.w(TAG,"tvTitle null");
+        }
         ActionBar actionBar = this.getSupportActionBar();
         actionBar.setCustomView(mActionBarView, lp);
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowTitleEnabled(false);
+
+
     }
 
 
@@ -218,14 +227,17 @@ public class MainActivity extends BaseActivity {
         switch (a) {
             case 0:
                 View_Pager.setCurrentItem(0);
+                tvTitle.setText("云妈宝");
                 home_image_view.setImageResource(R.mipmap.comui_tab_home_selected);
                 break;
             case 1:
                 View_Pager.setCurrentItem(1);
+                tvTitle.setText("抢单");
                 message_image_view.setImageResource(R.mipmap.comui_tab_message_selected);
                 break;
             case 2:
                 View_Pager.setCurrentItem(2);
+                tvTitle.setText("我");
                 person_image_view.setImageResource(R.mipmap.comui_tab_person_selected);
                 break;
             default:
