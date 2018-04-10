@@ -1,14 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:background="@color/home_bg_color"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:layout_marginTop="@dimen/section_height"
+        android:background="#ffffff"
+        android:paddingLeft="@dimen/section_height"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!--<com.cjym.yunmabao.ui.view.RoundImageView-->
+        <!--android:id="@+id/iv_head_pic"-->
+        <!--android:layout_width="70px"-->
+        <!--android:layout_height="70px"-->
+        <!--android:scaleType="center"-->
+        <!--android:src="@mipmap/man"-->
+        <!--custom:borderWidth="6px" />-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@mipmap/man" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="12px"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_horizontal|left"
+                android:text="谢阿姨"
+                android:textColor="@color/grid_text_color"
+                android:textSize="18px" />
+
+            <TextView
+                android:id="@+id/tv_card_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_horizontal|bottom"
+                android:singleLine="true"
+                android:text="15177687122"
+                android:textColor="@color/grid_text_color"
+                android:textSize="18px" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginTop="@dimen/section_height"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:src="@mipmap/five"
+            android:scaleType="center"
+            android:layout_weight="1"/>
+
+        <com.cjym.yunmabao.ui.view.CustomView
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5px"
+            android:layout_marginTop="5px"
+            android:layout_weight="1"
+            custom:image="@mipmap/five"
+            custom:imageScaleType="center"
+            custom:margin="@dimen/me_customview_margin"
+            custom:text="现金支付"
+            custom:textsize="@dimen/me_item_text_size"
+            custom:titleTextColor="@color/grid_text_color"
+            android:id="@+id/customView2" />
+
+
+
+        <com.cjym.yunmabao.ui.view.CustomView
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5px"
+            android:layout_marginTop="5px"
+            android:layout_weight="1"
+            custom:image="@mipmap/five"
+            custom:imageScaleType="center"
+            custom:margin="@dimen/me_customview_margin"
+            custom:text="现金支付"
+            custom:textsize="@dimen/me_item_text_size"
+            custom:titleTextColor="@color/grid_text_color" />
+
+        <com.cjym.yunmabao.ui.view.CustomView
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5px"
+            android:layout_marginTop="5px"
+            android:layout_weight="1"
+            custom:image="@mipmap/five"
+            custom:imageScaleType="center"
+            custom:margin="@dimen/me_customview_margin"
+            custom:text="现金支付"
+            custom:textsize="@dimen/me_item_text_size"
+            custom:titleTextColor="@color/grid_text_color" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="我"
-        android:textSize="30sp"/>
+        android:background="#ffffff"
+        android:layout_marginTop="@dimen/section_height"
+        android:padding="@dimen/me_item_padding"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="center"
+            android:src="@mipmap/no_orders"
+            />
+        <TextView
+            android:layout_marginLeft="@dimen/section_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|left"
+            android:text="我的订单"
+            android:textColor="@color/grid_text_color"
+            android:textSize="@dimen/me_item_text_size"
+            />
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_marginLeft="4dp"
+            android:src="@mipmap/right_arrow"
+            android:layout_marginRight="8dp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_thickness"
+        android:background="@color/bg_line" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:padding="@dimen/me_item_padding"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="center"
+            android:src="@mipmap/no_orders"
+            />
+        <TextView
+            android:layout_marginLeft="@dimen/section_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|left"
+            android:text="我的保险"
+            android:textColor="@color/grid_text_color"
+            android:textSize="@dimen/me_item_text_size"
+            />
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_marginLeft="4dp"
+            android:src="@mipmap/right_arrow"
+            android:layout_marginRight="8dp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_thickness"
+        android:background="@color/bg_line" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:padding="@dimen/me_item_padding"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="center"
+            android:src="@mipmap/no_orders"
+            />
+        <TextView
+            android:layout_marginLeft="@dimen/section_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|left"
+            android:text="我的收入"
+            android:textColor="@color/grid_text_color"
+            android:textSize="@dimen/me_item_text_size"
+            />
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_marginLeft="4dp"
+            android:src="@mipmap/right_arrow"
+            android:layout_marginRight="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:layout_marginTop="@dimen/section_height"
+        android:padding="@dimen/me_item_padding"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="center"
+            android:src="@mipmap/no_orders"
+            />
+
+        <TextView
+            android:layout_marginLeft="@dimen/section_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|left"
+            android:text="系统消息"
+            android:textColor="@color/grid_text_color"
+            android:textSize="@dimen/me_item_text_size"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_marginLeft="4dp"
+            android:src="@mipmap/dot_light"
+            android:layout_marginRight="8dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_marginLeft="4dp"
+            android:src="@mipmap/right_arrow"
+            android:layout_marginRight="8dp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_thickness"
+        android:background="@color/bg_line" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:padding="@dimen/me_item_padding"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="center"
+            android:src="@mipmap/no_orders"
+            />
+        <TextView
+            android:layout_marginLeft="@dimen/section_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|left"
+            android:text="使用帮助"
+            android:textColor="@color/grid_text_color"
+            android:textSize="@dimen/me_item_text_size"
+            />
+        <TextView
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_marginLeft="4dp"
+            android:src="@mipmap/right_arrow"
+            android:layout_marginRight="8dp"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_thickness"
+        android:background="@color/bg_line" />
 
 </LinearLayout>

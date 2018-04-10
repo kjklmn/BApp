@@ -9,5 +9,39 @@
     <dimen name="lv_height">400dp</dimen>
     <dimen name="lv_divider_height">1dp</dimen>
 
+
     <dimen name="list_item_height">55dp</dimen>
+
+    <!--主页第一行的高度-->
+    <dimen name="f_line_height">108dp</dimen>
+    <!--grid的高度-->
+    <dimen name="grid_line_height">132dp</dimen>
+    <!--中间间隔的高度-->
+    <dimen name="section_height">8dp</dimen>
+    <!--线的厚度-->
+    <dimen name="line_thickness">1dp</dimen>
+    <!--每个item中的字体大小-->
+    <dimen name="item_text_size">18sp</dimen>
+
+    <!--每个item中的字体大小-->
+    <dimen name="size_tv_height">32dp</dimen>
+
+    <!--每个item中的字体大小-->
+    <dimen name="msg_text_size">12dp</dimen>
+
+    <!--提示的高度-->
+    <dimen name="tip_height">18dp</dimen>
+
+    <!--“我”item中的字体大小-->
+    <dimen name="me_item_text_size">14sp</dimen>
+
+    <!--首页中customview中图片和文字之间的间隔-->
+    <dimen name="f_customview_margin">18dp</dimen>
+
+    <!--“我”中customview中图片和文字之间的间隔-->
+    <dimen name="me_customview_margin">8dp</dimen>
+
+    <!--“我”中的padding-->
+    <dimen name="me_item_padding">8dp</dimen>
+
 </resources>

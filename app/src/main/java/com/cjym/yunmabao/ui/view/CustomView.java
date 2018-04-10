@@ -31,6 +31,8 @@ public class CustomView extends View {
     private static final String TAG = "CustomView";
     private String text;
     private int textSize;
+    private String textN = null;
+    private int textNSize;
     private Bitmap mBitmap;
     private int imageScaleType;
     private int mTextColor;
@@ -39,6 +41,8 @@ public class CustomView extends View {
     private Rect rect;
     private Paint mPaint;
     private Rect mTextBound;
+    private Rect mTextNBound = null;
+    private int margin = 16;
 
     private static final int FILL_XY = 0;
     private static final int CENTER = 1;
@@ -75,6 +79,17 @@ public class CustomView extends View {
                     mTextColor = a.getColor(attr, Color.WHITE);
                     LogUtils.w(TAG,"mTextColor = "+mTextColor);
                     break;
+                case R.styleable.CustomView_textN:
+                    textN = a.getString(attr);
+                    break;
+                case R.styleable.CustomView_textNSize:
+                    textNSize = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
+                            16, getResources().getDisplayMetrics()));
+                    break;
+                case R.styleable.CustomView_margin:
+                    margin = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                            8, getResources().getDisplayMetrics()));
+                    break;
                 default:
                     break;
             }
@@ -86,6 +101,13 @@ public class CustomView extends View {
         mPaint.setTextSize(textSize);
         //计算出文字所占的宽高
         mPaint.getTextBounds(text, 0, text.length(), mTextBound);
+
+        if(textN != null) {
+            mTextNBound = new Rect();
+            mPaint.setTextSize(textNSize);
+            mPaint.getTextBounds(textN, 0, textN.length(), mTextNBound);
+        }
+
     }
 
 //    @Override
@@ -112,9 +134,14 @@ public class CustomView extends View {
             // 由字体决定的宽
             int desireByTitle = getPaddingLeft() + getPaddingRight() + mTextBound.width();
 
+            int desireByTextN = 0;
+            if(mTextNBound != null) {
+                desireByTextN = getPaddingLeft() + getPaddingRight() + mTextNBound.width();
+            }
+
             if (specMode == MeasureSpec.AT_MOST)// wrap_content
             {
-                int desire = Math.max(desireByImg, desireByTitle);
+                int desire = Math.max(Math.max(desireByImg, desireByTitle),desireByTextN);
                 mWidth = Math.min(desire, specSize);
             }
         }
@@ -128,7 +155,12 @@ public class CustomView extends View {
         {
             mHeight = specSize;
         } else {
-            int desire = getPaddingTop() + getPaddingBottom() + mBitmap.getHeight() + mTextBound.height();
+            int desire = getPaddingTop() + getPaddingBottom() + mBitmap.getHeight() + mTextBound.height()+margin;
+            if(mTextNBound != null) {
+                desire += mTextNBound.height();
+                LogUtils.w(TAG,"mTextBound.height() "+mTextBound.height());
+                LogUtils.w(TAG,"mTextNBound.height() "+mTextNBound.height());
+            }
             if (specMode == MeasureSpec.AT_MOST)// wrap_content
             {
                 mHeight = Math.min(desire, specSize);
@@ -139,6 +171,8 @@ public class CustomView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
+
+        mPaint.setTextSize(textSize);
         mPaint.setStrokeWidth(4);
         mPaint.setStyle(Paint.Style.STROKE);
 
@@ -152,33 +186,69 @@ public class CustomView extends View {
         /**
          * 当前设置的宽度小于字体需要的宽度，将字体改为xxx...
          */
-        if (mTextBound.width() > mWidth) {
-            TextPaint paint = new TextPaint(mPaint);
-            String msg = TextUtils.ellipsize(text, paint, (float) mWidth - getPaddingLeft() - getPaddingRight(),
-                    TextUtils.TruncateAt.END).toString();
-            mPaint.setColor(mTextColor);
-            canvas.drawText(msg, getPaddingLeft(), mHeight - getPaddingBottom(), mPaint);
 
-        } else {
-//            LogUtils.w(TAG,"mTextColor onDraw = "+mTextColor);
-            mPaint.setColor(mTextColor);
-            //正常情况，将字体居中
-            canvas.drawText(text, mWidth / 2 - mTextBound.width() * 1.0f / 2, mHeight/2 +mTextBound.height()/2+mBitmap.getHeight()/2 , mPaint);
-        }
+        if(mTextNBound == null) {
+            LogUtils.w(TAG,"3 为空");
+            if (mTextBound.width() > mWidth) {
+                TextPaint paint = new TextPaint(mPaint);
+                String msg = TextUtils.ellipsize(text, paint, (float) mWidth - getPaddingLeft() - getPaddingRight(),
+                        TextUtils.TruncateAt.END).toString();
+                mPaint.setColor(mTextColor);
+                canvas.drawText(msg, getPaddingLeft(), mHeight - getPaddingBottom(), mPaint);
 
-        //
-        rect.bottom -= mTextBound.height();
-        mPaint.setColor(Color.WHITE);
-        if (imageScaleType == FILL_XY) {
-            canvas.drawBitmap(mBitmap, null, rect, mPaint);
-        } else {
-            //计算居中的矩形范围
-            rect.left = mWidth / 2 - mBitmap.getWidth() / 2;
-            rect.right = mWidth / 2 + mBitmap.getWidth() / 2;
-            rect.top = (mHeight - mTextBound.height()) / 2 - mBitmap.getHeight() / 2;
-            rect.bottom = (mHeight - mTextBound.height()) / 2 + mBitmap.getHeight() / 2;
+            } else {
+    //            LogUtils.w(TAG,"mTextColor onDraw = "+mTextColor);
+                mPaint.setColor(mTextColor);
+                //正常情况，将字体居中
+                canvas.drawText(text, mWidth / 2 - mTextBound.width() * 1.0f / 2, mHeight/2 + mTextBound.height()/2 + mBitmap.getHeight()/2 , mPaint);
+            }
 
-            canvas.drawBitmap(mBitmap, null, rect, mPaint);
+            //
+            rect.bottom -= mTextBound.height();
+            mPaint.setColor(Color.WHITE);
+            if (imageScaleType == FILL_XY) {
+                canvas.drawBitmap(mBitmap, null, rect, mPaint);
+            } else {
+                //计算居中的矩形范围
+                rect.left = mWidth / 2 - mBitmap.getWidth() / 2;
+                rect.right = mWidth / 2 + mBitmap.getWidth() / 2;
+                rect.top = (mHeight - mTextBound.height()) / 2 - mBitmap.getHeight() / 2 - margin;
+                rect.bottom = (mHeight - mTextBound.height()) / 2 + mBitmap.getHeight() / 2 - margin;
+
+                canvas.drawBitmap(mBitmap, null, rect, mPaint);
+            }
+        } else {//第三行文字不为空
+            LogUtils.w(TAG,"3 不为空"+mTextColor);
+            if (mTextBound.width() > mWidth) {
+                TextPaint paint = new TextPaint(mPaint);
+                String msg = TextUtils.ellipsize(text, paint, (float) mWidth - getPaddingLeft() - getPaddingRight(),
+                        TextUtils.TruncateAt.END).toString();
+                mPaint.setColor(mTextColor);
+                canvas.drawText(msg, getPaddingLeft(), mHeight - getPaddingBottom(), mPaint);
+
+            } else {
+                LogUtils.w(TAG,"mTextColor onDraw = "+mTextColor);
+                mPaint.setColor(mTextColor);
+                //正常情况，将字体居中
+                LogUtils.w(TAG,"mHeight "+mHeight+"; mTextBound "+mTextBound.height()+";mBitmap = "+mBitmap.getHeight()+"; mTextNBound = "+mTextNBound.height());
+                canvas.drawText(textN, mWidth / 2 - mTextNBound.width() * 1.0f / 2, mHeight/2 +mTextBound.height()/2+mBitmap.getHeight()/2+mTextNBound.height()/2 , mPaint);
+                canvas.drawText(text, mWidth / 2 - mTextBound.width() * 1.0f / 2, ((int)(mHeight-mTextNBound.height()))/2 +mTextBound.height()/2+mBitmap.getHeight()/2 , mPaint);
+            }
+
+            //
+            rect.bottom = rect.bottom - mTextBound.height() - mTextNBound.height();
+            mPaint.setColor(Color.WHITE);
+            if (imageScaleType == FILL_XY) {
+                canvas.drawBitmap(mBitmap, null, rect, mPaint);
+            } else {
+                //计算居中的矩形范围
+                rect.left = mWidth / 2 - mBitmap.getWidth() / 2;
+                rect.right = mWidth / 2 + mBitmap.getWidth() / 2;
+                rect.top = (mHeight - mTextBound.height() - mTextNBound.height()) / 2 - mBitmap.getHeight() / 2;
+                rect.bottom = (mHeight - mTextBound.height() - mTextNBound.height()) / 2 + mBitmap.getHeight() / 2;
+
+                canvas.drawBitmap(mBitmap, null, rect, mPaint);
+            }
         }
     }
 }

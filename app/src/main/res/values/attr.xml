@@ -3,6 +3,9 @@
    <declare-styleable name="CustomView">
        <attr name="text" format="string"/>
        <attr name="textsize" format="dimension"/>
+       <attr name="textN" format="string"/>
+       <attr name="textNSize" format="dimension"/>
+       <attr name="margin" format="dimension"/>
        <attr name="titleTextColor" format="color" />
        <attr name="image" format="reference"/>
        <attr name="imageScaleType" format="enum">

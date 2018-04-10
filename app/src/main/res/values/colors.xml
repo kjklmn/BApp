@@ -7,4 +7,19 @@
     <color name="bg_tv">#3F51B5</color>
 
     <color name="text_color_white">#ffffff</color>
+
+    <color name="home_bg_color">#dcdcdc</color>
+
+    <!--线的颜色-->
+    <color name="bg_line">#eeeeee</color>
+
+    <!--第一行item的字体颜色-->
+    <color name="fline_text_color">#ffffff</color>
+
+    <!--grid的字体颜色-->
+    <color name="grid_text_color">#333333</color>
+
+    <!--提示的背景颜色-->
+    <color name="tip_bg">#FF9800</color>
+
 </resources>
