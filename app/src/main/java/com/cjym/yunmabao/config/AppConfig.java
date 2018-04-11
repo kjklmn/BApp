@@ -1,5 +1,7 @@
 package com.cjym.yunmabao.config;
 
+import com.cjym.yunmabao.BuildConfig;
+
 /**
  * 项目名称：BossApp
  * 类描述：
@@ -9,8 +11,8 @@ package com.cjym.yunmabao.config;
  * 修改时间：2017-12-07 17:00
  * 修改备注：
  */
-public class DebugConfig {
-    public static boolean DEBUG = true;
+public class AppConfig {
+    public static boolean DEBUG = BuildConfig.LOG_DEBUG;
     public static final boolean SPEAKER = true;
 
     //开发环境

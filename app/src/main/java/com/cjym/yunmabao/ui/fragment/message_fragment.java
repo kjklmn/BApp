@@ -8,13 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cjym.yunmabao.R;
+import com.cjym.yunmabao.ui.fragments.BaseFragment;
 
 
 /**
  * Created by 14487 on 2017/9/17.
  */
 
-public class message_fragment extends Fragment {
+public class message_fragment extends BaseFragment {
 
     private View ContentView;
 

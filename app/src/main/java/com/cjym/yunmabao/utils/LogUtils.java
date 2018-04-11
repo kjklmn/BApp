@@ -2,7 +2,7 @@ package com.cjym.yunmabao.utils;
 
 import android.util.Log;
 
-import com.cjym.yunmabao.config.DebugConfig;
+import com.cjym.yunmabao.config.AppConfig;
 
 public class LogUtils {
 
@@ -16,7 +16,7 @@ public class LogUtils {
 	public static int LEVEL = NOTHING;//如果把等级设为4，那么只有4，5才能打印出来，其他的不能打印出来
 
 	static {
-		if(!DebugConfig.DEBUG) {
+		if(!AppConfig.DEBUG) {
 			LEVEL = NOTHING;   //如果不是debug模式，什么都不要打印
 		} else {
 			LEVEL = DEBUG;

@@ -2,7 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-    compileSdkVersion 24
+    signingConfigs {
+        release {
+            keyAlias 'cjym'
+            keyPassword 'cjym123456'
+            storeFile file('F:/cjym.jks')
+            storePassword 'cjym123456'
+        }
+    }
+    compileSdkVersion 26
     buildToolsVersion "27.0.1"
     defaultConfig {
         applicationId "com.cjym.yunmabao"
@@ -19,8 +27,16 @@ android {
     }
     buildTypes {
         release {
+            buildConfigField "String", "CustomValue", '"releaseType"'
+            buildConfigField "boolean", "LOG_DEBUG", "false"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            applicationIdSuffix'.debug'
+            buildConfigField "String", "CustomValue", '"buildType"'
+            buildConfigField "boolean", "LOG_DEBUG", "true"
         }
     }
     externalNativeBuild {
@@ -30,23 +46,7 @@ android {
     }
 }
 
-apply plugin: 'replugin-host-gradle'
 
-repluginHostConfig {
-    /**
-     * 是否使用 AppCompat 库
-     * 不需要个性化配置时，无需添加
-     */
-    useAppCompat = true
-    /**
-     * 背景不透明的坑的数量
-     * 不需要个性化配置时，无需添加
-     */
-//    countNotTranslucentStandard = 6
-//    countNotTranslucentSingleTop = 2
-//    countNotTranslucentSingleTask = 3
-//    countNotTranslucentSingleInstance = 2
-}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -56,10 +56,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support:design:26.0.0-alpha1'
     testCompile 'junit:junit:4.12'
-
-    //replugin
-    compile 'com.qihoo360.replugin:replugin-host-lib:2.2.1'
-
     // retrofit2 + okhttp3
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
@@ -69,16 +65,10 @@ dependencies {
     // rxjava
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'
-
-
     compile 'com.jakewharton:butterknife:8.5.1'
     apt 'com.jakewharton:butterknife-compiler:8.5.1'
-
-
     //dagger
     compile 'com.google.dagger:dagger:2.4'
     apt 'com.google.dagger:dagger-compiler:2.4'
     compile 'org.glassfish:javax.annotation:10.0-b28'
-
-
 }

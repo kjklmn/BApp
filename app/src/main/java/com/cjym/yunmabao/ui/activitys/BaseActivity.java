@@ -33,7 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
         $Log(TAG + "-->onCreate()");
         try {
             Bundle bundle = getIntent().getExtras();
-//            initParms(bundle);
+            initParms(bundle);
 //            mContextView = LayoutInflater.from(this)
 //                    .inflate(bindLayout(), null);
 //            if (mAllowFullScreen) {

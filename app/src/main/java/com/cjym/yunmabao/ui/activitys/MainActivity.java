@@ -56,16 +56,16 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initParms(Bundle parms) {
-        LoginResponse response = (LoginResponse) parms.getSerializable("data");
-        if (response != null
-                && response.data != null) {
-            shop_id = response.data.shop_id;
-            sign = response.data.sign;
-            img_path = response.data.img;
-            shop_name = response.data.name;
-        } else {
-            LogUtils.e(TAG, "response is null");
-        }
+//        LoginResponse response = (LoginResponse) parms.getSerializable("data");
+//        if (response != null
+//                && response.data != null) {
+//            shop_id = response.data.shop_id;
+//            sign = response.data.sign;
+//            img_path = response.data.img;
+//            shop_name = response.data.name;
+//        } else {
+//            LogUtils.e(TAG, "response is null");
+//        }
 
     }
 
@@ -183,7 +183,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        shopInfoPresenter.detachView();
+//        shopInfoPresenter.detachView();
     }
 
     @Override

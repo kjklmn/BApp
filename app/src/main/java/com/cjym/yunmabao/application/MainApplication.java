@@ -1,12 +1,13 @@
 package com.cjym.yunmabao.application;
 
 
+import android.app.Application;
+
 import com.cjym.yunmabao.di.component.DaggerNetComponent;
 import com.cjym.yunmabao.di.component.NetComponent;
 import com.cjym.yunmabao.di.module.NetModule;
-import com.qihoo360.replugin.RePluginApplication;
 
-public class MainApplication extends RePluginApplication {
+public class MainApplication extends Application {
 
     public boolean isDebug;
     public String APP_NAME;

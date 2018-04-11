@@ -2,7 +2,7 @@ package com.cjym.yunmabao.http;
 
 
 import com.cjym.yunmabao.application.MainApplication;
-import com.cjym.yunmabao.config.DebugConfig;
+import com.cjym.yunmabao.config.AppConfig;
 import com.cjym.yunmabao.presenter.login.LoginRequest;
 import com.cjym.yunmabao.presenter.login.LoginResponse;
 import com.cjym.yunmabao.presenter.shopinfo.ShopInfoRequest;
@@ -56,7 +56,7 @@ public class RetrofitManager {
         initOkHttpClient();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(DebugConfig.Base_URL)
+                .baseUrl(AppConfig.Base_URL)
                 .client(mOkHttpClient)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
@@ -75,14 +75,14 @@ public class RetrofitManager {
                     // 指定缓存路径,缓存大小100Mb
                     Cache cache = new Cache(new File(MainApplication.getInstance().getCacheDir(), "HttpCache"),
                             1024 * 1024 * 100);
-                    if (!DebugConfig.DEBUG) {
+                    if (!AppConfig.DEBUG) {
                         mOkHttpClient = new OkHttpClient.Builder()
                                 .addInterceptor(new ReceivedCookiesInterceptor(MainApplication.getInstance()))
                                 .addInterceptor(new AddCookiesInterceptor(MainApplication.getInstance()))
                                 .retryOnConnectionFailure(true)
-                                .connectTimeout(DebugConfig.connect_timeout, TimeUnit.SECONDS)
-                                .readTimeout(DebugConfig.read_timeout, TimeUnit.SECONDS)
-                                .writeTimeout(DebugConfig.write_timeout, TimeUnit.SECONDS)
+                                .connectTimeout(AppConfig.connect_timeout, TimeUnit.SECONDS)
+                                .readTimeout(AppConfig.read_timeout, TimeUnit.SECONDS)
+                                .writeTimeout(AppConfig.write_timeout, TimeUnit.SECONDS)
                                 .build();
                     } else {
                         mOkHttpClient = new OkHttpClient.Builder()
@@ -90,9 +90,9 @@ public class RetrofitManager {
                                 .addInterceptor(new AddCookiesInterceptor(MainApplication.getInstance()))
                                 .addInterceptor(interceptor)
                                 .retryOnConnectionFailure(true)
-                                .connectTimeout(DebugConfig.connect_timeout, TimeUnit.SECONDS)
-                                .readTimeout(DebugConfig.read_timeout, TimeUnit.SECONDS)
-                                .writeTimeout(DebugConfig.write_timeout, TimeUnit.SECONDS)
+                                .connectTimeout(AppConfig.connect_timeout, TimeUnit.SECONDS)
+                                .readTimeout(AppConfig.read_timeout, TimeUnit.SECONDS)
+                                .writeTimeout(AppConfig.write_timeout, TimeUnit.SECONDS)
                                 .build();
                     }
 

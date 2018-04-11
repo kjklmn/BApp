@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.cjym.yunmabao.application.MainApplication;
-import com.cjym.yunmabao.config.DebugConfig;
+import com.cjym.yunmabao.config.AppConfig;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -159,7 +159,7 @@ public class StringUtils {
 						}
 					}
 				}
-				if(DebugConfig.DEBUG) {
+				if(AppConfig.DEBUG) {
 					LogUtils.d("parseString", "全部数据 = " + data + ";" + "\nkey = " + key + ";\nvalue = " + value + ";\nkey位置 = " + firstKeyPos +
 							";\nkey与金额之间的空隙 = " + (index + space)
 							+ ";\n金额之后的位置 = " + spaceAfterKey

@@ -1,7 +1,7 @@
 package com.cjym.yunmabao.di.module;
 
 import com.cjym.yunmabao.application.MainApplication;
-import com.cjym.yunmabao.config.DebugConfig;
+import com.cjym.yunmabao.config.AppConfig;
 import com.cjym.yunmabao.http.AddCookiesInterceptor;
 import com.cjym.yunmabao.http.NetworkService;
 import com.cjym.yunmabao.http.ReceivedCookiesInterceptor;
@@ -42,14 +42,14 @@ public class NetModule {
         // 指定缓存路径,缓存大小100Mb
         Cache cache = new Cache(new File(MainApplication.getInstance().getCacheDir(), "HttpCache"),
                 1024 * 1024 * 100);
-        if(!DebugConfig.DEBUG) {
+        if(!AppConfig.DEBUG) {
             mOkHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new ReceivedCookiesInterceptor(MainApplication.getInstance()))
                     .addInterceptor(new AddCookiesInterceptor(MainApplication.getInstance()))
                     .retryOnConnectionFailure(true)
-                    .connectTimeout(DebugConfig.connect_timeout, TimeUnit.SECONDS)
-                    .readTimeout(DebugConfig.read_timeout,TimeUnit.SECONDS)
-                    .writeTimeout(DebugConfig.write_timeout,TimeUnit.SECONDS)
+                    .connectTimeout(AppConfig.connect_timeout, TimeUnit.SECONDS)
+                    .readTimeout(AppConfig.read_timeout,TimeUnit.SECONDS)
+                    .writeTimeout(AppConfig.write_timeout,TimeUnit.SECONDS)
                     .build();
         } else {
             mOkHttpClient = new OkHttpClient.Builder()
@@ -57,9 +57,9 @@ public class NetModule {
                     .addInterceptor(new AddCookiesInterceptor(MainApplication.getInstance()))
                     .addInterceptor(interceptor)
                     .retryOnConnectionFailure(true)
-                    .connectTimeout(DebugConfig.connect_timeout, TimeUnit.SECONDS)
-                    .readTimeout(DebugConfig.read_timeout,TimeUnit.SECONDS)
-                    .writeTimeout(DebugConfig.write_timeout,TimeUnit.SECONDS)
+                    .connectTimeout(AppConfig.connect_timeout, TimeUnit.SECONDS)
+                    .readTimeout(AppConfig.read_timeout,TimeUnit.SECONDS)
+                    .writeTimeout(AppConfig.write_timeout,TimeUnit.SECONDS)
                     .build();
         }
         return mOkHttpClient;
@@ -68,7 +68,7 @@ public class NetModule {
     @Singleton
     public Retrofit provideRetrofit(OkHttpClient okhttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(DebugConfig.Base_URL)
+                .baseUrl(AppConfig.Base_URL)
                 .client(okhttpClient)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
