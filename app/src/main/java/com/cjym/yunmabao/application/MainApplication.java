@@ -2,6 +2,7 @@ package com.cjym.yunmabao.application;
 
 
 import android.app.Application;
+import android.content.Context;
 
 import com.cjym.yunmabao.di.component.DaggerNetComponent;
 import com.cjym.yunmabao.di.component.NetComponent;
@@ -13,10 +14,12 @@ public class MainApplication extends Application {
     public String APP_NAME;
     private static MainApplication instance;
     private NetComponent netComponent;
+    private static Context mContext;//上下文
 
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
         instance = this;
         initNet();
     }
@@ -25,6 +28,9 @@ public class MainApplication extends Application {
         netComponent = DaggerNetComponent.builder()
             .netModule(new NetModule())
             .build();
+    }
+    public static Context getContext() {
+        return mContext;
     }
 
     public NetComponent getNetComponent() {

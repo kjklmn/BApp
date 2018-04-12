@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 
 import com.cjym.yunmabao.R;
+import com.cjym.yunmabao.ui.activitys.MyScheduleActivity;
 import com.cjym.yunmabao.ui.activitys.WebViewActivity;
 import com.cjym.yunmabao.ui.fragments.BaseFragment;
 import com.cjym.yunmabao.ui.view.BottomScrollView;
@@ -26,7 +27,7 @@ import butterknife.Unbinder;
  * Created by 14487 on 2017/9/17.
  */
 
-public class home_fragment extends Fragment {
+public class home_fragment extends BaseFragment {
 
 
     @BindView(R.id.main_scroll_view)
@@ -37,6 +38,8 @@ public class home_fragment extends Fragment {
     protected Activity mActivity;
 
     CustomView cv_paytype_cash;
+    CustomView cv_my_schedule;
+    CustomView cv_interview;
 
     @Nullable
     @Override
@@ -53,11 +56,19 @@ public class home_fragment extends Fragment {
         cv_paytype_cash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mActivity, WebViewActivity.class);
-                intent.putExtra("kejian","woainizhongguo");
-//                intent.putExtra(WebViewActivity.URL, news.article_url);
-                startActivity(intent);
-                return;
+                Bundle bundle = new Bundle();
+                bundle.putString("kejian","云妈收款");
+                toActivity(mActivity,WebViewActivity.class,bundle);
+            }
+        });
+
+        cv_my_schedule = contentView.findViewById(R.id.cv_my_schedule);
+        cv_my_schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("kejian","我的档期");
+                toActivity(mActivity,MyScheduleActivity.class,bundle);
             }
         });
     }

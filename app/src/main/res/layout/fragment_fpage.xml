@@ -34,7 +34,7 @@
                 android:layout_weight="1"
                 custom:image="@drawable/cash"
                 custom:imageScaleType="center"
-                custom:text="现金支付"
+                custom:text="我要收款"
                 custom:margin="@dimen/f_customview_margin"
                 custom:textsize="@dimen/item_text_size"
                 custom:titleTextColor="@color/fline_text_color" />
@@ -146,13 +146,14 @@
                 android:layout_height="match_parent"
                 android:background="@color/bg_line" />
             <com.cjym.yunmabao.ui.view.CustomView
+                android:id="@+id/cv_my_schedule"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
                 android:layout_weight="1"
                 custom:imageScaleType="center"
-                custom:text="现金支付"
+                custom:text="我的档期"
                 custom:textsize="@dimen/item_text_size"
                 custom:image="@mipmap/five"
                 custom:titleTextColor="@color/grid_text_color"
@@ -162,13 +163,14 @@
                 android:layout_height="match_parent"
                 android:background="@color/bg_line" />
             <com.cjym.yunmabao.ui.view.CustomView
+                android:id="@+id/cv_interview"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
                 android:layout_weight="1"
                 custom:imageScaleType="center"
-                custom:text="现金支付"
+                custom:text="面试"
                 custom:textsize="@dimen/item_text_size"
                 custom:image="@mipmap/five"
                 custom:titleTextColor="@color/grid_text_color"

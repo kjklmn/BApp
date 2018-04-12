@@ -10,12 +10,12 @@ android {
             storePassword 'cjym123456'
         }
     }
-    compileSdkVersion 26
-    buildToolsVersion "27.0.1"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.cjym.yunmabao"
-        minSdkVersion 17
-        targetSdkVersion 24
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -71,4 +71,6 @@ dependencies {
     compile 'com.google.dagger:dagger:2.4'
     apt 'com.google.dagger:dagger-compiler:2.4'
     compile 'org.glassfish:javax.annotation:10.0-b28'
+    //    compile 'com.github.chaychan:SlideCloseLib:1.0.0'
+    compile project(':calendarview')
 }

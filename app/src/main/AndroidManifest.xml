@@ -22,12 +22,16 @@
 
         <activity
             android:name="com.cjym.yunmabao.ui.activitys.LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:label="@string/title_activity_login">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
+        </activity>
+
+        <activity android:name=".ui.activitys.MyScheduleActivity">
+
         </activity>
 
         <activity android:name="com.cjym.yunmabao.ui.activitys.MainActivity">
@@ -37,8 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.activitys.WebViewActivity"/>
+        <activity android:name=".ui.activitys.WebViewActivity" />
     </application>
 
 </manifest>

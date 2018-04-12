@@ -5,7 +5,6 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.cjym.yunmabao.R;
@@ -26,10 +25,10 @@ public class WebViewActivity extends BaseActivity {
     public static final String URL = "url";
     @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.tv_author)
-    TextView tvAuthor;
-    @BindView(R.id.pb_loading)
-    ProgressBar pbLoading;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
+//    @BindView(R.id.pb_loading)
+//    ProgressBar pbLoading;
     @BindView(R.id.wv_content)
     WebView wvContent;
 
@@ -37,6 +36,7 @@ public class WebViewActivity extends BaseActivity {
     @Override
     public void initParms(Bundle parms) {
         LogUtils.w(TAG,"kejian = "+ parms.getString("kejian"));
+//        tvTitle.setText("云妈收款");
     }
 
     @Override
@@ -46,6 +46,8 @@ public class WebViewActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        getSupportActionBar().hide();
+        tvTitle.setText("云妈收款");
         wvContent.loadUrl("http://www.baidu.com");
         //设置WebViewClient客户端
         wvContent.setWebViewClient(new WebViewClient(){

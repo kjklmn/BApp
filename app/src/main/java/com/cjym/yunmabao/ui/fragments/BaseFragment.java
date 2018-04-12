@@ -2,6 +2,7 @@ package com.cjym.yunmabao.ui.fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -35,4 +36,13 @@ public class BaseFragment extends Fragment {
         mActivity = (Activity) context;
     }
 
+
+    public void toActivity(Context mContext,Class<?> clz, Bundle bundle) {
+        Intent intent = new Intent();
+        intent.setClass(mContext, clz);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
 }

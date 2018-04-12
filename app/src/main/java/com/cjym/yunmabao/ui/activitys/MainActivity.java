@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.cjym.yunmabao.R;
 import com.cjym.yunmabao.base.BaseMvpView;
 import com.cjym.yunmabao.base.BaseResponse;
-import com.cjym.yunmabao.presenter.login.LoginResponse;
 import com.cjym.yunmabao.presenter.shopinfo.ShopInfoPresenter;
 import com.cjym.yunmabao.ui.fragment.home_fragment;
 import com.cjym.yunmabao.ui.fragment.message_fragment;
@@ -52,7 +51,12 @@ public class MainActivity extends BaseActivity {
     private String sign = null;
     private String img_path = null;
     private String shop_name = null;
-    private TextView tvTitle;
+
+    private int[] mStatusColors = new int[]{
+            R.color.color_D33D3C,
+            R.color.color_BDBDBD,
+            R.color.color_BDBDBD,
+    };
 
     @Override
     public void initParms(Bundle parms) {
@@ -89,15 +93,20 @@ public class MainActivity extends BaseActivity {
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowHomeEnabled(false);
         actionBar.setDisplayShowTitleEnabled(false);
-
-
     }
-
+    private void setStatusBarColor(int position) {
+//        if (position == 3){
+//            //如果是我的页面，状态栏设置为透明状态栏
+//            Eyes.translucentStatusBar(MainActivity.this,true);
+//        }else{
+//            Eyes.setStatusBarColor(MainActivity.this, UIUtils.getColor(mStatusColors[position]));
+//        }
+    }
 
     @Override
     public void initView() {
-        setCustomActionBar();
-
+//        setCustomActionBar();
+//        setStatusBarColor(0);
         //新建滑动的4个数据源 fragments数据集中
         fragments = new ArrayList<>();
         Fragment home = new home_fragment();
