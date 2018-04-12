@@ -1,6 +1,8 @@
 package com.cjym.yunmabao.ui.activitys;
 
 import android.os.Bundle;
+import android.os.Looper;
+import android.os.MessageQueue;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -51,6 +53,8 @@ public class MainActivity extends BaseActivity {
     private String sign = null;
     private String img_path = null;
     private String shop_name = null;
+
+
 
     private int[] mStatusColors = new int[]{
             R.color.color_D33D3C,
@@ -103,8 +107,39 @@ public class MainActivity extends BaseActivity {
 //        }
     }
 
+    private View statusBarView;
+    private void initStatusBar() {
+        if (statusBarView == null) {
+            int identifier = getResources().getIdentifier("statusBarBackground", "id", "android");
+            statusBarView = getWindow().findViewById(identifier);
+        }
+        if (statusBarView != null) {
+            statusBarView.setBackgroundResource(R.drawable.bg_toolbar);
+        }
+    }
+
+    protected boolean isStatusBar() {
+        return true;
+    }
     @Override
     public void initView() {
+        Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {
+            @Override
+            public boolean queueIdle() {
+                if (isStatusBar()) {
+                    initStatusBar();
+                    getWindow().getDecorView().addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                        @Override
+                        public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                            initStatusBar();
+                        }
+                    });
+                }
+                //只走一次
+                return false;
+            }
+        });
+        tvTitle = (TextView)findViewById(R.id.title);
 //        setCustomActionBar();
 //        setStatusBarColor(0);
         //新建滑动的4个数据源 fragments数据集中
@@ -236,17 +271,23 @@ public class MainActivity extends BaseActivity {
         switch (a) {
             case 0:
                 View_Pager.setCurrentItem(0);
-                tvTitle.setText("云妈宝");
+                if (tvTitle != null) {
+                    tvTitle.setText("云妈宝");
+                }
                 home_image_view.setImageResource(R.mipmap.comui_tab_home_selected);
                 break;
             case 1:
                 View_Pager.setCurrentItem(1);
-                tvTitle.setText("抢单");
+                if (tvTitle != null) {
+                    tvTitle.setText("抢单");
+                }
                 message_image_view.setImageResource(R.mipmap.comui_tab_message_selected);
                 break;
             case 2:
                 View_Pager.setCurrentItem(2);
-                tvTitle.setText("我");
+                if (tvTitle != null) {
+                    tvTitle.setText("我");
+                }
                 person_image_view.setImageResource(R.mipmap.comui_tab_person_selected);
                 break;
             default:

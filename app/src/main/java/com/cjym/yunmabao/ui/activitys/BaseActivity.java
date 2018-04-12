@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -54,13 +55,15 @@ public abstract class BaseActivity extends AppCompatActivity implements
 //                steepStatusBar();
 //            }
             setContentView(bindLayout());
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
 //            if (!isAllowScreenRoate) {
 //                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 //            } else {
 //                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 //            }
             ButterKnife.bind(this);
-            setCustomActionBar();
+//            setCustomActionBar();
             initView();
             doBusiness();
             steepStatusBar();
@@ -69,21 +72,21 @@ public abstract class BaseActivity extends AppCompatActivity implements
         }
     }
 
-    private void setCustomActionBar() {
-        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
-        View mActionBarView = LayoutInflater.from(this).inflate(R.layout.actionbar_layout, null);
-        LogUtils.w(TAG,"tvTitle init");
-        tvTitle = mActionBarView.findViewById(R.id.title);
-        if(tvTitle == null) {
-            LogUtils.w(TAG,"tvTitle null");
-        }
-        ActionBar actionBar = this.getSupportActionBar();
-        actionBar.setCustomView(mActionBarView, lp);
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setDisplayShowHomeEnabled(false);
-        actionBar.setDisplayShowTitleEnabled(false);
-    }
+//    private void setCustomActionBar() {
+//        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
+//        View mActionBarView = LayoutInflater.from(this).inflate(R.layout.actionbar_layout, null);
+//        LogUtils.w(TAG,"tvTitle init");
+//        tvTitle = mActionBarView.findViewById(R.id.title);
+//        if(tvTitle == null) {
+//            LogUtils.w(TAG,"tvTitle null");
+//        }
+//        ActionBar actionBar = this.getSupportActionBar();
+//        actionBar.setCustomView(mActionBarView, lp);
+//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+//        actionBar.setDisplayShowCustomEnabled(true);
+//        actionBar.setDisplayShowHomeEnabled(false);
+//        actionBar.setDisplayShowTitleEnabled(false);
+//    }
 
     /**
      * [沉浸状态栏]

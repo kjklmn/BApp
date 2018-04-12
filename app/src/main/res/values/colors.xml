@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#eeeeee</color>
-    <color name="colorPrimaryDark">#eeeeee</color>
+    <color name="colorPrimary">#666666</color>
+    <color name="colorPrimaryDark">#f4dda6</color>
     <color name="colorAccent">#eeeeee</color>
 
     <color name="bg_tv">#3F51B5</color>
@@ -16,11 +16,15 @@
     <!--第一行item的字体颜色-->
     <color name="fline_text_color">#ffffff</color>
 
+
+    <!--grid的字体颜色-->
+    <color name="tip_text_color">#b16f0c</color>
+
     <!--grid的字体颜色-->
     <color name="grid_text_color">#333333</color>
-
+    <color name="toolbar_text_color">#333333</color>
     <!--提示的背景颜色-->
-    <color name="tip_bg">#FF9800</color>
+    <color name="tip_bg">#59facd89</color>
 
 
     <color name="corner_bg_danmu">#FF9800</color>

@@ -27,10 +27,10 @@
     <dimen name="size_tv_height">32dp</dimen>
 
     <!--每个item中的字体大小-->
-    <dimen name="msg_text_size">12dp</dimen>
+    <dimen name="msg_text_size">13sp</dimen>
 
     <!--提示的高度-->
-    <dimen name="tip_height">18dp</dimen>
+    <dimen name="tip_height">43dp</dimen>
 
     <!--“我”item中的字体大小-->
     <dimen name="me_item_text_size">14sp</dimen>
@@ -47,4 +47,6 @@
 
     <dimen name="corner_bg_danmu">24dp</dimen>
     <dimen name="danmu_h">44dp</dimen>
+
+    <dimen name="tip_icon_wh">13dp</dimen>
 </resources>

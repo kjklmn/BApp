@@ -2,22 +2,37 @@
 <com.cjym.yunmabao.ui.view.BottomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_scroll_view"
-    android:background="@color/home_bg_color"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/home_bg_color">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/tip_height"
-            android:text="资料完整度20%，请先完善口碑店铺资料"
             android:background="@color/tip_bg"
-            android:gravity="center"
-            android:textColor="@color/grid_text_color"
-            android:textSize="@dimen/msg_text_size"
-            />
+            android:orientation="horizontal"
+            android:gravity="center_vertical|left">
+            <ImageView
+                android:layout_marginLeft="7dp"
+                android:layout_width="@dimen/tip_icon_wh"
+                android:layout_height="@dimen/tip_icon_wh"
+                android:src="@mipmap/dot_light"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/tip_height"
+                android:layout_marginLeft="8dp"
+                android:gravity="center"
+                android:text="资料完整度20%，请先完善口碑店铺资料"
+                android:textColor="@color/tip_text_color"
+                android:textSize="@dimen/msg_text_size" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/f_line_height"
@@ -34,8 +49,8 @@
                 android:layout_weight="1"
                 custom:image="@drawable/cash"
                 custom:imageScaleType="center"
-                custom:text="我要收款"
                 custom:margin="@dimen/f_customview_margin"
+                custom:text="我要收款"
                 custom:textsize="@dimen/item_text_size"
                 custom:titleTextColor="@color/fline_text_color" />
 
@@ -63,87 +78,96 @@
                 custom:textsize="@dimen/item_text_size"
                 custom:titleTextColor="@color/fline_text_color" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/list_item_height"
-            android:background="#ffffff"
             android:layout_marginTop="@dimen/section_height"
+            android:background="#ffffff"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/msg_text_size"
+                android:layout_marginStart="@dimen/msg_text_size"
                 android:gravity="center_vertical|left"
                 android:singleLine="true"
                 android:text="消息"
-                android:layout_marginStart="@dimen/msg_text_size"
-                android:layout_marginEnd="@dimen/msg_text_size"
                 android:textColor="@color/grid_text_color"
                 android:textSize="@dimen/me_item_text_size" />
+
             <View
-                android:layout_marginTop="@dimen/section_height"
-                android:layout_marginBottom="@dimen/section_height"
                 android:layout_width="@dimen/line_thickness"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/section_height"
+                android:layout_marginTop="@dimen/section_height"
                 android:background="@color/bg_line" />
 
             <LinearLayout
                 android:layout_width="0px"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/msg_text_size"
                 android:layout_marginEnd="@dimen/msg_text_size"
+                android:layout_marginStart="@dimen/msg_text_size"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:paddingTop="@dimen/section_height"
+                android:orientation="vertical"
                 android:paddingBottom="@dimen/section_height"
-                android:orientation="vertical">
+                android:paddingTop="@dimen/section_height">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0px"
                     android:layout_weight="1">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/msg_text_size"
+                        android:layout_marginStart="@dimen/msg_text_size"
                         android:gravity="center_vertical|left"
                         android:singleLine="true"
                         android:text="您的提现审批已经通过"
-                        android:layout_marginStart="@dimen/msg_text_size"
-                        android:layout_marginEnd="@dimen/msg_text_size"
                         android:textColor="@color/grid_text_color"
                         android:textSize="@dimen/msg_text_size" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/msg_text_size"
+                        android:layout_marginStart="@dimen/msg_text_size"
                         android:gravity="center_vertical|left"
                         android:singleLine="true"
                         android:text="2小时前"
-                        android:layout_marginStart="@dimen/msg_text_size"
-                        android:layout_marginEnd="@dimen/msg_text_size"
                         android:textColor="@color/color_999999"
                         android:textSize="@dimen/msg_text_size" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0px"
                     android:layout_weight="1">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/msg_text_size"
+                        android:layout_marginStart="@dimen/msg_text_size"
                         android:gravity="center_vertical|left"
                         android:singleLine="true"
                         android:text="您的提现已经到达您的银行卡中"
-                        android:layout_marginStart="@dimen/msg_text_size"
-                        android:layout_marginEnd="@dimen/msg_text_size"
                         android:textColor="@color/grid_text_color"
                         android:textSize="@dimen/msg_text_size" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/msg_text_size"
+                        android:layout_marginStart="@dimen/msg_text_size"
                         android:gravity="center_vertical|left"
                         android:singleLine="true"
                         android:text="1小时前"
-                        android:layout_marginStart="@dimen/msg_text_size"
-                        android:layout_marginEnd="@dimen/msg_text_size"
                         android:textColor="@color/color_999999"
                         android:textSize="@dimen/msg_text_size" />
                 </LinearLayout>
@@ -153,23 +177,24 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:scaleType="center"
                 android:layout_marginLeft="4dp"
-                android:src="@mipmap/dot_light"
-                android:layout_marginRight="8dp"/>
+                android:layout_marginRight="8dp"
+                android:scaleType="center"
+                android:src="@mipmap/dot_light" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:scaleType="center"
                 android:layout_marginLeft="4dp"
-                android:src="@mipmap/right_arrow"
-                android:layout_marginRight="8dp"/>
+                android:layout_marginRight="8dp"
+                android:scaleType="center"
+                android:src="@mipmap/right_arrow" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_marginTop="@dimen/section_height"
             android:layout_width="match_parent"
             android:layout_height="@dimen/grid_line_height"
+            android:layout_marginTop="@dimen/section_height"
             android:background="#ffffff"
             android:orientation="horizontal">
 
@@ -180,50 +205,54 @@
                 android:layout_marginTop="5px"
                 android:layout_weight="1"
                 custom:image="@mipmap/five"
-                custom:margin="@dimen/f_customview_margin"
-                custom:titleTextColor="@color/grid_text_color"
                 custom:imageScaleType="center"
+                custom:margin="@dimen/f_customview_margin"
                 custom:text="现金支付"
                 custom:textsize="@dimen/item_text_size"
-                 />
+                custom:titleTextColor="@color/grid_text_color" />
 
             <View
                 android:layout_width="@dimen/line_thickness"
                 android:layout_height="match_parent"
                 android:background="@color/bg_line" />
+
             <com.cjym.yunmabao.ui.view.CustomView
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
                 android:layout_weight="1"
-                custom:imageScaleType="center"
-                custom:text="现金支付"
-                custom:margin="@dimen/f_customview_margin"
-                custom:textsize="@dimen/item_text_size"
                 custom:image="@mipmap/five"
+                custom:imageScaleType="center"
+                custom:margin="@dimen/f_customview_margin"
+                custom:text="现金支付"
+                custom:textsize="@dimen/item_text_size"
                 custom:titleTextColor="@color/grid_text_color" />
+
             <View
                 android:layout_width="@dimen/line_thickness"
                 android:layout_height="match_parent"
                 android:background="@color/bg_line" />
+
             <com.cjym.yunmabao.ui.view.CustomView
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
-                custom:margin="@dimen/f_customview_margin"
                 android:layout_weight="1"
-                custom:imageScaleType="center"
-                custom:text="现金支付"
                 custom:image="@mipmap/five"
+                custom:imageScaleType="center"
+                custom:margin="@dimen/f_customview_margin"
+                custom:text="现金支付"
                 custom:textsize="@dimen/item_text_size"
                 custom:titleTextColor="@color/grid_text_color" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_thickness"
             android:background="@color/bg_line" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/grid_line_height"
@@ -231,23 +260,24 @@
             android:orientation="horizontal">
 
             <com.cjym.yunmabao.ui.view.CustomView
+                android:id="@+id/customView"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
-                custom:margin="@dimen/f_customview_margin"
                 android:layout_weight="1"
-                custom:imageScaleType="center"
-                custom:text="现金支付"
                 custom:image="@mipmap/five"
+                custom:imageScaleType="center"
+                custom:margin="@dimen/f_customview_margin"
+                custom:text="现金支付"
                 custom:textsize="@dimen/item_text_size"
-                custom:titleTextColor="@color/grid_text_color"
-                android:id="@+id/customView" />
+                custom:titleTextColor="@color/grid_text_color" />
 
             <View
                 android:layout_width="@dimen/line_thickness"
                 android:layout_height="match_parent"
                 android:background="@color/bg_line" />
+
             <com.cjym.yunmabao.ui.view.CustomView
                 android:id="@+id/cv_my_schedule"
                 android:layout_width="0px"
@@ -255,16 +285,18 @@
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
                 android:layout_weight="1"
+                custom:image="@mipmap/five"
                 custom:imageScaleType="center"
+                custom:margin="@dimen/f_customview_margin"
                 custom:text="我的档期"
                 custom:textsize="@dimen/item_text_size"
-                custom:image="@mipmap/five"
-                custom:titleTextColor="@color/grid_text_color"
-                custom:margin="@dimen/f_customview_margin"/>
+                custom:titleTextColor="@color/grid_text_color" />
+
             <View
                 android:layout_width="@dimen/line_thickness"
                 android:layout_height="match_parent"
                 android:background="@color/bg_line" />
+
             <com.cjym.yunmabao.ui.view.CustomView
                 android:id="@+id/cv_interview"
                 android:layout_width="0px"
@@ -272,17 +304,19 @@
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
                 android:layout_weight="1"
+                custom:image="@mipmap/five"
                 custom:imageScaleType="center"
+                custom:margin="@dimen/f_customview_margin"
                 custom:text="面试"
                 custom:textsize="@dimen/item_text_size"
-                custom:image="@mipmap/five"
-                custom:titleTextColor="@color/grid_text_color"
-                custom:margin="@dimen/f_customview_margin"/>
+                custom:titleTextColor="@color/grid_text_color" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/line_thickness"
             android:background="@color/bg_line" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/grid_line_height"
@@ -295,81 +329,87 @@
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
                 android:layout_weight="1"
+                custom:image="@mipmap/five"
                 custom:imageScaleType="center"
                 custom:text="现金支付"
-                custom:image="@mipmap/five"
                 custom:textsize="@dimen/item_text_size"
-                custom:titleTextColor="@color/grid_text_color"/>
+                custom:titleTextColor="@color/grid_text_color" />
 
             <View
                 android:layout_width="@dimen/line_thickness"
                 android:layout_height="match_parent"
                 android:background="@color/bg_line" />
+
             <com.cjym.yunmabao.ui.view.CustomView
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
                 android:layout_weight="1"
+                custom:image="@mipmap/five"
                 custom:imageScaleType="center"
                 custom:text="现金支付"
                 custom:textsize="@dimen/item_text_size"
-                custom:image="@mipmap/five"
                 custom:titleTextColor="@color/grid_text_color" />
+
             <View
                 android:layout_width="@dimen/line_thickness"
                 android:layout_height="match_parent"
                 android:background="@color/bg_line" />
+
             <com.cjym.yunmabao.ui.view.CustomView
-                android:visibility="invisible"
                 android:layout_width="0px"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5px"
                 android:layout_marginTop="5px"
                 android:layout_weight="1"
+                android:visibility="invisible"
+                custom:image="@mipmap/five"
                 custom:imageScaleType="center"
                 custom:text="现金支付"
                 custom:textsize="@dimen/item_text_size"
-                custom:image="@mipmap/five"
                 custom:titleTextColor="@color/grid_text_color" />
         </LinearLayout>
 
         <FrameLayout
-            android:layout_marginTop="@dimen/section_height"
             android:layout_width="match_parent"
+            android:layout_height="@dimen/tv_height"
             android:layout_marginBottom="@dimen/section_height"
-            android:layout_height="@dimen/tv_height">
+            android:layout_marginTop="@dimen/section_height">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/grid_line_height"
-                android:src="@mipmap/adv"
                 android:scaleType="fitXY"
-                />
+                android:src="@mipmap/adv" />
+
             <LinearLayout
-                android:background="@drawable/bg_danmu"
                 android:id="@+id/ll_danmu"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/danmu_h"
-                android:layout_marginLeft="@dimen/section_height"
                 android:layout_gravity="bottom|right"
+                android:layout_marginLeft="@dimen/section_height"
+                android:background="@drawable/bg_danmu"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <com.cjym.yunmabao.ui.view.RoundImageView
-                android:id="@+id/iv_head_pic"
-                android:layout_marginStart="@dimen/me_item_padding"
-                android:layout_width="@dimen/size_tv_height"
-                android:layout_height="@dimen/size_tv_height"
-                android:scaleType="center"
-                android:src="@mipmap/man"
-                custom:borderWidth="6px" />
+                    android:id="@+id/iv_head_pic"
+                    android:layout_width="@dimen/size_tv_height"
+                    android:layout_height="@dimen/size_tv_height"
+                    android:layout_marginStart="@dimen/me_item_padding"
+                    android:scaleType="center"
+                    android:src="@mipmap/man"
+                    custom:borderWidth="6px" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginEnd="@dimen/msg_text_size"
+                    android:layout_marginStart="@dimen/me_item_padding"
                     android:gravity="center_vertical|left"
                     android:singleLine="true"
                     android:text="小师妹：我抢到单了"
-                    android:layout_marginStart="@dimen/me_item_padding"
-                    android:layout_marginEnd="@dimen/msg_text_size"
                     android:textColor="@color/grid_text_color"
                     android:textSize="@dimen/msg_text_size" />
             </LinearLayout>
