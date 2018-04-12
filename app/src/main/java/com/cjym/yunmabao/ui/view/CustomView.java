@@ -188,7 +188,7 @@ public class CustomView extends View {
          */
 
         if(mTextNBound == null) {
-            LogUtils.w(TAG,"3 为空");
+//            LogUtils.w(TAG,"3 为空");
             if (mTextBound.width() > mWidth) {
                 TextPaint paint = new TextPaint(mPaint);
                 String msg = TextUtils.ellipsize(text, paint, (float) mWidth - getPaddingLeft() - getPaddingRight(),

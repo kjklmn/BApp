@@ -44,4 +44,7 @@
     <!--“我”中的padding-->
     <dimen name="me_item_padding">8dp</dimen>
 
+
+    <dimen name="corner_bg_danmu">24dp</dimen>
+    <dimen name="danmu_h">44dp</dimen>
 </resources>

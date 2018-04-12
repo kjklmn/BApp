@@ -64,6 +64,109 @@
                 custom:titleTextColor="@color/fline_text_color" />
         </LinearLayout>
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/list_item_height"
+            android:background="#ffffff"
+            android:layout_marginTop="@dimen/section_height"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|left"
+                android:singleLine="true"
+                android:text="消息"
+                android:layout_marginStart="@dimen/msg_text_size"
+                android:layout_marginEnd="@dimen/msg_text_size"
+                android:textColor="@color/grid_text_color"
+                android:textSize="@dimen/me_item_text_size" />
+            <View
+                android:layout_marginTop="@dimen/section_height"
+                android:layout_marginBottom="@dimen/section_height"
+                android:layout_width="@dimen/line_thickness"
+                android:layout_height="match_parent"
+                android:background="@color/bg_line" />
+
+            <LinearLayout
+                android:layout_width="0px"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/msg_text_size"
+                android:layout_marginEnd="@dimen/msg_text_size"
+                android:gravity="center"
+                android:paddingTop="@dimen/section_height"
+                android:paddingBottom="@dimen/section_height"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|left"
+                        android:singleLine="true"
+                        android:text="您的提现审批已经通过"
+                        android:layout_marginStart="@dimen/msg_text_size"
+                        android:layout_marginEnd="@dimen/msg_text_size"
+                        android:textColor="@color/grid_text_color"
+                        android:textSize="@dimen/msg_text_size" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|left"
+                        android:singleLine="true"
+                        android:text="2小时前"
+                        android:layout_marginStart="@dimen/msg_text_size"
+                        android:layout_marginEnd="@dimen/msg_text_size"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/msg_text_size" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0px"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|left"
+                        android:singleLine="true"
+                        android:text="您的提现已经到达您的银行卡中"
+                        android:layout_marginStart="@dimen/msg_text_size"
+                        android:layout_marginEnd="@dimen/msg_text_size"
+                        android:textColor="@color/grid_text_color"
+                        android:textSize="@dimen/msg_text_size" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical|left"
+                        android:singleLine="true"
+                        android:text="1小时前"
+                        android:layout_marginStart="@dimen/msg_text_size"
+                        android:layout_marginEnd="@dimen/msg_text_size"
+                        android:textColor="@color/color_999999"
+                        android:textSize="@dimen/msg_text_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:layout_marginLeft="4dp"
+                android:src="@mipmap/dot_light"
+                android:layout_marginRight="8dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:layout_marginLeft="4dp"
+                android:src="@mipmap/right_arrow"
+                android:layout_marginRight="8dp"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_marginTop="@dimen/section_height"
             android:layout_width="match_parent"
             android:layout_height="@dimen/grid_line_height"
@@ -230,58 +333,48 @@
                 custom:image="@mipmap/five"
                 custom:titleTextColor="@color/grid_text_color" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size_tv_height"
-            android:background="#ffffff"
+
+        <FrameLayout
             android:layout_marginTop="@dimen/section_height"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:gravity="center_vertical|left"
-                android:singleLine="true"
-                android:text="您的提现审批通过"
-                android:textColor="@color/grid_text_color"
-                android:textSize="@dimen/msg_text_size" />
-
-
-
-
-
-            <TextView
-                android:layout_width="0px"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical|left"
-                android:singleLine="true"
-                android:textColor="#333333"
-                android:textSize="16px" />
-
-            <TextView
-                android:id="@+id/tv_use_scope"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="12px"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center_vertical|right"
-                android:singleLine="true"
-                android:text="2018/03/19 17:00"
-                android:textColor="@color/grid_text_color"
-                android:textSize="@dimen/msg_text_size" />
-
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/section_height"
+            android:layout_height="@dimen/tv_height">
             <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/grid_line_height"
+                android:src="@mipmap/adv"
+                android:scaleType="fitXY"
+                />
+            <LinearLayout
+                android:background="@drawable/bg_danmu"
+                android:id="@+id/ll_danmu"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/danmu_h"
+                android:layout_marginLeft="@dimen/section_height"
+                android:layout_gravity="bottom|right"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <com.cjym.yunmabao.ui.view.RoundImageView
+                android:id="@+id/iv_head_pic"
+                android:layout_marginStart="@dimen/me_item_padding"
+                android:layout_width="@dimen/size_tv_height"
+                android:layout_height="@dimen/size_tv_height"
                 android:scaleType="center"
-                android:layout_marginLeft="4dp"
-                android:src="@mipmap/right_arrow"
-                android:layout_marginRight="8dp"/>
-        </LinearLayout>
+                android:src="@mipmap/man"
+                custom:borderWidth="6px" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|left"
+                    android:singleLine="true"
+                    android:text="小师妹：我抢到单了"
+                    android:layout_marginStart="@dimen/me_item_padding"
+                    android:layout_marginEnd="@dimen/msg_text_size"
+                    android:textColor="@color/grid_text_color"
+                    android:textSize="@dimen/msg_text_size" />
+            </LinearLayout>
+        </FrameLayout>
+
 
     </LinearLayout>
 </com.cjym.yunmabao.ui.view.BottomScrollView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<shape xmlns:android="http://schemas.android.com/apk/res/android">    
+    <solid android:color="#556fb5" />
+    <corners android:topLeftRadius="@dimen/corner_bg_danmu"
+             android:topRightRadius="@dimen/corner_bg_danmu"
+             android:bottomRightRadius="@dimen/corner_bg_danmu"
+             android:bottomLeftRadius="@dimen/corner_bg_danmu"/>
+</shape> 

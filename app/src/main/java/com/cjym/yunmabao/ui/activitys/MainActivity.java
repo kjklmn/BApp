@@ -16,7 +16,7 @@ import com.cjym.yunmabao.R;
 import com.cjym.yunmabao.base.BaseMvpView;
 import com.cjym.yunmabao.base.BaseResponse;
 import com.cjym.yunmabao.presenter.shopinfo.ShopInfoPresenter;
-import com.cjym.yunmabao.ui.fragment.home_fragment;
+import com.cjym.yunmabao.ui.fragment.Home_fragment;
 import com.cjym.yunmabao.ui.fragment.message_fragment;
 import com.cjym.yunmabao.ui.fragment.person_fragment;
 import com.cjym.yunmabao.utils.LogUtils;
@@ -109,7 +109,7 @@ public class MainActivity extends BaseActivity {
 //        setStatusBarColor(0);
         //新建滑动的4个数据源 fragments数据集中
         fragments = new ArrayList<>();
-        Fragment home = new home_fragment();
+        Fragment home = new Home_fragment();
         Fragment message = new message_fragment();
         Fragment person = new person_fragment();
         fragments.add(home);

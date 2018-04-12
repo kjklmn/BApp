@@ -1,15 +1,17 @@
 package com.cjym.yunmabao.ui.fragment;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 
 import com.cjym.yunmabao.R;
 import com.cjym.yunmabao.ui.activitys.MyScheduleActivity;
@@ -27,13 +29,15 @@ import butterknife.Unbinder;
  * Created by 14487 on 2017/9/17.
  */
 
-public class home_fragment extends BaseFragment {
-
+public class Home_fragment extends BaseFragment {
+    private static final String TAG = Home_fragment.class.getSimpleName();
 
     @BindView(R.id.main_scroll_view)
     BottomScrollView mainScrollView;
 
     Unbinder unbinder;
+    @BindView(R.id.ll_danmu)
+    LinearLayout llDanmu;
     private View contentView;
     protected Activity mActivity;
 
@@ -44,7 +48,7 @@ public class home_fragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        LogUtils.w("home_fragment","onCreateView");
+        LogUtils.w("Home_fragment", "onCreateView");
         contentView = inflater.inflate(R.layout.fragment_fpage, container, false);
         unbinder = ButterKnife.bind(this, contentView);
         initListener();
@@ -57,8 +61,8 @@ public class home_fragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("kejian","云妈收款");
-                toActivity(mActivity,WebViewActivity.class,bundle);
+                bundle.putString("kejian", "云妈收款");
+                toActivity(mActivity, WebViewActivity.class, bundle);
             }
         });
 
@@ -67,10 +71,67 @@ public class home_fragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("kejian","我的档期");
-                toActivity(mActivity,MyScheduleActivity.class,bundle);
+                bundle.putString("kejian", "我的档期");
+                toActivity(mActivity, MyScheduleActivity.class, bundle);
             }
         });
+
+//        float curTranslationX = llDanmu.getTranslationX();
+        startDanmu();
+    }
+    int screenWidth = 0;
+    int viewWidth = 0;
+    private void startDanmu() {
+        if(screenWidth == 0) {
+            getHW();
+            getViewHW();
+            LogUtils.w(TAG,screenWidth+";viewWidth"+viewWidth);
+        }
+        ObjectAnimator animator = ObjectAnimator.ofFloat(llDanmu, "translationX", viewWidth, 0-screenWidth);
+        animator.setDuration(20000);
+
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                llDanmu.setVisibility(View.VISIBLE);
+                LogUtils.w(TAG,"onAnimationStart");
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                llDanmu.setVisibility(View.GONE);
+                LogUtils.w(TAG,"onAnimationEnd");
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                llDanmu.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+        animator.start();
+    }
+
+    private void getHW() {
+        WindowManager manager = mActivity.getWindowManager();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        manager.getDefaultDisplay().getMetrics(outMetrics);
+        screenWidth = outMetrics.widthPixels;
+        int height = outMetrics.heightPixels;
+        LogUtils.w(TAG,"屏幕："+screenWidth+";"+height);
+    }
+
+    private void getViewHW() {
+        int w =View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED);
+        int h =View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED);
+        llDanmu.measure(w,h);
+        int height= llDanmu.getMeasuredHeight();
+        viewWidth = llDanmu.getMeasuredWidth();
+        LogUtils.w(TAG,"子view："+viewWidth+";"+height);
     }
 
     @Override
