@@ -15,7 +15,7 @@ import com.cjym.yunmabao.ui.fragments.BaseFragment;
  * Created by 14487 on 2017/9/17.
  */
 
-public class pond_fragment extends BaseFragment {
+public class Pond_fragment extends BaseFragment {
 
     private View ContentView;
 

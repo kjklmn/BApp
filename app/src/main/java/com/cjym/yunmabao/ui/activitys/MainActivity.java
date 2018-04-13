@@ -19,8 +19,8 @@ import com.cjym.yunmabao.base.BaseMvpView;
 import com.cjym.yunmabao.base.BaseResponse;
 import com.cjym.yunmabao.presenter.shopinfo.ShopInfoPresenter;
 import com.cjym.yunmabao.ui.fragment.Home_fragment;
-import com.cjym.yunmabao.ui.fragment.message_fragment;
-import com.cjym.yunmabao.ui.fragment.person_fragment;
+import com.cjym.yunmabao.ui.fragment.Message_fragment;
+import com.cjym.yunmabao.ui.fragment.Person_fragment;
 import com.cjym.yunmabao.utils.LogUtils;
 
 import java.util.ArrayList;
@@ -145,8 +145,8 @@ public class MainActivity extends BaseActivity {
         //新建滑动的4个数据源 fragments数据集中
         fragments = new ArrayList<>();
         Fragment home = new Home_fragment();
-        Fragment message = new message_fragment();
-        Fragment person = new person_fragment();
+        Fragment message = new Message_fragment();
+        Fragment person = new Person_fragment();
         fragments.add(home);
         fragments.add(message);
         fragments.add(person);
@@ -281,14 +281,14 @@ public class MainActivity extends BaseActivity {
                 if (tvTitle != null) {
                     tvTitle.setText("抢单");
                 }
-                message_image_view.setImageResource(R.mipmap.comui_tab_message_selected);
+                message_image_view.setImageResource(R.mipmap.comui_tab_grabbill_selected);
                 break;
             case 2:
                 View_Pager.setCurrentItem(2);
                 if (tvTitle != null) {
                     tvTitle.setText("我");
                 }
-                person_image_view.setImageResource(R.mipmap.comui_tab_person_selected);
+                person_image_view.setImageResource(R.mipmap.comui_tab_me_selected);
                 break;
             default:
                 break;
@@ -298,7 +298,7 @@ public class MainActivity extends BaseActivity {
     //设置所有图片的颜色为暗色
     private void ReSetimg() {
         home_image_view.setImageResource(R.mipmap.comui_tab_home);
-        message_image_view.setImageResource(R.mipmap.comui_tab_message);
-        person_image_view.setImageResource(R.mipmap.comui_tab_person);
+        message_image_view.setImageResource(R.mipmap.comui_tab_grabbill);
+        person_image_view.setImageResource(R.mipmap.comui_tab_me);
     }
 }

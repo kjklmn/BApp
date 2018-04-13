@@ -57,6 +57,10 @@ public abstract class BaseActivity extends AppCompatActivity implements
             setContentView(bindLayout());
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
+            getSupportActionBar().setElevation(0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                toolbar.setElevation(0);
+            }
 //            if (!isAllowScreenRoate) {
 //                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 //            } else {

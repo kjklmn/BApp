@@ -8,13 +8,13 @@
 
     <color name="text_color_white">#ffffff</color>
 
-    <color name="home_bg_color">#dcdcdc</color>
+    <color name="home_bg_color">#f5f5f5</color>
 
     <!--线的颜色-->
     <color name="bg_line">#eeeeee</color>
 
     <!--第一行item的字体颜色-->
-    <color name="fline_text_color">#ffffff</color>
+    <color name="fline_text_color">#734907</color>
 
 
     <!--grid的字体颜色-->
